@@ -8,14 +8,17 @@ import {
   UNFILTERED_HEADER,
   UNFILTERED_DESCRIPTION
 } from "../constants";
+import { useSpring, animated } from "react-spring";
 
 import { BannerText } from "./StyledComponents";
 
 const Home = () => {
+  const props = useSpring({ opacity: 0, from: { opacity: 1 } });
   return (
     <Fragment>
       {/* <MainWrapper> */}
       <MainWrapper>
+        {/* <animated.h1 style={props}>hello</animated.h1> */}
         <Image src={logo} width={[1 / 3, 1 / 4, 1 / 5]} mb={[2, 2, 3]} />
         <BannerText fontSize={[4, 4, 6]}>{UNFILTERED_HEADER}</BannerText>
         <ContentWrapper fontSize={[2, 4, 5]} m={[4]} textAlign="center">
