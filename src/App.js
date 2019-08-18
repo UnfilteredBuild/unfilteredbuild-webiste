@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Router, Link } from "@reach/router";
+import { Box } from "rebass";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import styled, { ThemeProvider } from "styled-components";
+import theme from "./theme";
+import Home from "./components/Home";
+import "@reach/dialog/styles.css";
+class App extends Component {
+  getWindowSize = () => {
+    let viewportwidth = window.innerWidth;
+    let viewportheight = window.innerHeight;
+    return { viewportheight, viewportwidth };
+  };
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Home path="/" />
+        </Router>
+      </ThemeProvider>
+    );
+  }
 }
 
 export default App;
