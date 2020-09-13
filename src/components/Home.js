@@ -1,16 +1,17 @@
-import React, { Fragment } from "react";
-import { Flex, Image, Text, Link } from "rebass";
-import styled from "styled-components";
-import logo from "../assets/UnfilteredBuild_Logo.png";
+import React, { Fragment } from 'react';
+import { Flex, Image, Text, Link } from 'rebass';
+import styled from 'styled-components';
+import logo from '../assets/UnfilteredBuild_Logo.png';
 import {
   MAILTO,
   DROP_NOTE,
   UNFILTERED_HEADER,
-  UNFILTERED_DESCRIPTION
-} from "../constants";
-import { useSpring, animated } from "react-spring";
+  UNFILTERED_DESCRIPTION,
+  UNFILTERED_TAGLINE,
+} from '../constants';
+import { useSpring } from 'react-spring';
 
-import { BannerText } from "./StyledComponents";
+import { BannerText, TaglineText } from './StyledComponents';
 
 const Home = () => {
   const props = useSpring({ opacity: 0, from: { opacity: 1 } });
@@ -21,6 +22,10 @@ const Home = () => {
         {/* <animated.h1 style={props}>hello</animated.h1> */}
         <Image src={logo} width={[1 / 3, 1 / 4, 1 / 5]} mb={[2, 2, 3]} />
         <BannerText fontSize={[4, 4, 6]}>{UNFILTERED_HEADER}</BannerText>
+
+        <TaglineText fontSize={[1, 2, 4]} m={[]} textAlign="center">
+          {UNFILTERED_TAGLINE}
+        </TaglineText>
         <ContentWrapper fontSize={[2, 4, 5]} m={[4]} textAlign="center">
           {UNFILTERED_DESCRIPTION}
         </ContentWrapper>
@@ -42,20 +47,20 @@ const MainWrapper = styled(Flex)`
 `;
 
 const ContentWrapper = styled(Text)`
-  font-family: ${props => props.theme.fontFamily.secondary};
-  color: ${props => (props.color ? props.color : props.theme.colors.black)};
-  font-weight: ${props =>
+  font-family: ${(props) => props.theme.fontFamily.secondary};
+  color: ${(props) => (props.color ? props.color : props.theme.colors.black)};
+  font-weight: ${(props) =>
     props.fontWeight ? props.fontWeight : props.theme.fontWeight.medium};
 `;
 
 const MailTo = styled(Link)`
   text-decoration: none;
-  color: ${props => props.theme.colors.jet};
+  color: ${(props) => props.theme.colors.jet};
   opacity: 0.6;
 
   :hover {
     text-decoration: underline;
-    color: ${props => props.theme.colors.black};
+    color: ${(props) => props.theme.colors.black};
     opacity: 1;
   }
 `;
