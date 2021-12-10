@@ -12,14 +12,15 @@ import {
 import { useSpring } from 'react-spring';
 
 import { BannerText, TaglineText } from './StyledComponents';
+import NavBar from './NavBar';
 
 const Home = () => {
-  const props = useSpring({ opacity: 0, from: { opacity: 1 } });
+  // const props = useSpring({ opacity: 0, from: { opacity: 1 } });
   return (
     <Fragment>
-      {/* <MainWrapper> */}
       <MainWrapper>
         {/* <animated.h1 style={props}>hello</animated.h1> */}
+        <NavBar />
         <Image src={logo} width={[1 / 3, 1 / 4, 1 / 5]} mb={[2, 2, 3]} />
         <BannerText fontSize={[4, 4, 6]}>{UNFILTERED_HEADER}</BannerText>
 
